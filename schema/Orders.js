@@ -6,9 +6,24 @@ cube(`Orders`, {
     main: {
       measures: [Orders.count],
       dimensions: [Orders.status],
-      timeDimension: Orders.completedAt,
+      timeDimension: Orders.createdAt,
+      granularity: `week`,
+      partitionGranularity: `month`,
+      refreshKey: {
+        //sql: `SELECT MAX(created_at) FROM Orders`,
+        every: `1 minute`,
+        incremental: true,
+        updateWindow: `2 month`,
+      },
+    },
+
+    mainNoPartitions: {
+      measures: [Orders.count],
+      dimensions: [Orders.status],
+      timeDimension: Orders.createdAt,
       granularity: `week`
     }
+    
   },
   joins: {},
   measures: {
