@@ -20,7 +20,7 @@ cube(`Orders`, {
     mainNoPartitions: {
       measures: [Orders.count],
       dimensions: [Orders.status],
-      timeDimension: Orders.createdAt,
+      timeDimension: Orders.completedAt,
       granularity: `week`
     }
     
