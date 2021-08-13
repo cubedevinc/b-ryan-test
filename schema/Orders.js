@@ -13,7 +13,7 @@ cube(`Orders`, {
         //sql: `SELECT MAX(created_at) FROM Orders`,
         every: `1 minute`,
         incremental: true,
-        updateWindow: `2 month`,
+        updateWindow: `2 months`,
       },
     },
 
