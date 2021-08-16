@@ -2,26 +2,6 @@ cube(`Orders`, {
   sql: `SELECT * FROM public.orders`,
   preAggregations: {// Pre-Aggregations definitions go here
     // Learn more here: https://cube.dev/docs/caching/pre-aggregations/getting-started
-
-    main: {
-      measures: [Orders.count],
-      dimensions: [Orders.status],
-      timeDimension: Orders.createdAt,
-      granularity: `week`,
-      partitionGranularity: `month`,
-      refreshKey: {
-        //sql: `SELECT MAX(created_at) FROM Orders`,
-        every: `1 minute`,
-        incremental: true,
-        updateWindow: `60 day`,
-      },
-    },
-
-    mainNoPartitions: {
-      measures: [Orders.count],
-      dimensions: [Orders.status],
-      timeDimension: Orders.completedAt,
-      granularity: `week`
     }
     
   },

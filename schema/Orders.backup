@@ -1,0 +1,18 @@
+/*
+    main: {
+      measures: [Orders.count],
+      dimensions: [Orders.status],
+      timeDimension: Orders.createdAt,
+      granularity: `week`,
+      partitionGranularity: `month`,
+      refreshKey: {
+        //sql: `SELECT MAX(created_at) FROM Orders`,
+        every: `1 minute`,
+        incremental: true,
+        updateWindow: `60 day`,
+      },
+      buildRangeEnd: {
+        sql: `SELECT NOW()`
+      }
+    },
+    */
