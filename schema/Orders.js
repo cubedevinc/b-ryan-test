@@ -1,8 +1,33 @@
 cube(`Orders`, {
   sql: `SELECT * FROM public.orders`,
-  preAggregations: {// Pre-Aggregations definitions go here
+  preAggregations: {
+    // Pre-Aggregations definitions go here
     // Learn more here: https://cube.dev/docs/caching/pre-aggregations/getting-started
+    rollupCreatedAt: {
+      measures: [Orders.count],
+      dimensions: [Orders.status],
+      refreshKey: {
+        every: `1 hour`,
+        updateWindow: `1 day`,
+        incremental: true
+      },
+      partitionGranularity: `month`,
+      timeDimension: Orders.createdAt,
+      granularity: `day`
     },
+    rollupCompletedAt: {
+      measures: [Orders.count],
+      dimensions: [Orders.status],
+      refreshKey: {
+        every: `1 hour`,
+        updateWindow: `1 day`,
+        incremental: true
+      },
+      partitionGranularity: `month`,
+      timeDimension: Orders.completedAt,
+      granularity: `day`
+    }
+  },
   joins: {},
   measures: {
     count: {
