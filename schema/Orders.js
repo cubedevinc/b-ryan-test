@@ -26,6 +26,11 @@ cube(`Orders`, {
       partitionGranularity: `month`,
       timeDimension: Orders.completedAt,
       granularity: `day`
+    },
+    rollupSumMonthly: {
+      measures: [Orders.number],
+      timeDimension: Orders.completedAt,
+      granularity: `month`
     }
   },
   joins: {},
