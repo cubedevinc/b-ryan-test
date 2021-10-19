@@ -15,18 +15,6 @@ cube(`Orders`, {
       timeDimension: Orders.createdAt,
       granularity: `day`
     },
-    rollupCompletedAt: {
-      measures: [Orders.count],
-      dimensions: [Orders.status],
-      refreshKey: {
-        every: `1 hour`,
-        updateWindow: `1 day`,
-        incremental: true
-      },
-      partitionGranularity: `month`,
-      timeDimension: Orders.completedAt,
-      granularity: `day`
-    },
     rollupSumMonthly: {
       measures: [Orders.number],
       timeDimension: Orders.completedAt,
