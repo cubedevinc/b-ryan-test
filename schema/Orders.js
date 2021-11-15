@@ -19,12 +19,6 @@ cube(`Orders`, {
       measures: [Orders.number],
       timeDimension: Orders.completedAt,
       granularity: `month`
-    },
-    main: {
-      measures: [Orders.number],
-      dimensions: [Orders.status],
-      timeDimension: Orders.completedAt,
-      granularity: `day`
     }
   },
   joins: {},
