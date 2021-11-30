@@ -6,7 +6,7 @@ cube(`Orders`, {
     rollupCreatedAt: {
       measures: [Orders.count],
       dimensions: [Orders.status],
-      refreshKey: {fgfgg
+      refreshKey: {
         every: `1 hour`,
         updateWindow: `1 day`,
         incremental: true
