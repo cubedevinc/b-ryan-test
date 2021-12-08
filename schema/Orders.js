@@ -7,7 +7,7 @@ cube(`Orders`, {
       measures: [Orders.count],
       dimensions: [Orders.status],
       refreshKey: {
-        every: `1 hour`,
+        every: `1 day`,
         updateWindow: `1 day`,
         incremental: true
       },
