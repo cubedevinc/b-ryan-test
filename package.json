@@ -6,9 +6,9 @@
     "dev": "cubejs-server"
   },
   "template": "docker",
-  "templateVersion": "0.28.16",
+  "templateVersion": "0.29.23",
   "devDependencies": {
-    "@cubejs-backend/postgres-driver": "^0.28.15",
-    "@cubejs-backend/server": "^0.28.16"
+    "@cubejs-backend/postgres-driver": "^0.29.23",
+    "@cubejs-backend/server": "^0.29.23"
   }
 }
